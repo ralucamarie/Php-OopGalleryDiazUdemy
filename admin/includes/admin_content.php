@@ -7,7 +7,15 @@
                             Blank Page
                             <small>Subheading</small>
                         </h1>
-
+                        <?php
+                             $user = new User();
+                             $user->username = "parrram";
+                             $user->password = "aaaa";
+                             $user->first_name="mirco";
+                             $user->last_name="leTTUce";
+                             
+                             $user->create();
+                        ?> 
                         <?php 
                         
                         //find all users
@@ -28,15 +36,23 @@
                         
                         <?php
                         // //test the update method
-                        //     $user=User::find_user_by_id(5);
-                        //     $user->last_name="WILLIAMS";
+                            // $user=User::find_user_by_id(10);
+                            // $user->last_name="Brahms";
+                            // $user->first_name="Brahms";
+                            // $user->password="tucii";
+                            // $user->update();
 
-                        //     $user->update();
+
+
+                        //with save method:
+                        // $user=new User();
+                        // $user->username = "WHAT";
+                        // $user->save();
 
                         //test the delete method
-                        $user=User::find_user_by_id(4);
-                        $user->delete();
-
+                        // $user=User::find_user_by_id(2);
+                        // $user->delete();
+                           
                         ?>
 
                         <br>
