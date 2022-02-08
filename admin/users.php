@@ -31,9 +31,13 @@ $users= User::find_all();
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            users
+                            Users
                             <small>Subheading</small>
                         </h1>
+
+                        <a href="add_user.php" class="btn btn-primary">Add User</a>
+
+
                         
                         <div class="col-md-12">
                             <table class="table table-hover">
@@ -51,11 +55,11 @@ $users= User::find_all();
                                     foreach ($users as $user)  : ?>
                                         
                                         <td><?php echo $user->id; ?></td>
-                                        <td><img class="admin-user-thumbnail" src=<?php echo $user->user_image ?> alt=""></td>
+                                        <td><img class="user_image" src=<?php echo $user->image_path_and_placeholder(); ?> alt=""></td>
                                         <td><?php echo $user->username; ?>
                                                 <div class="action_links">
-                                                    <a href="delete_photo.php?id=<?php echo $user->id; ?>">Delete</a>
-                                                    <a href="edit_photo.php?id=<?php echo $user->id; ?>">Edit</a>
+                                                    <a href="delete_user.php?id=<?php echo $user->id; ?>">Delete</a>
+                                                    <a href="edit_user.php?id=<?php echo $user->id; ?>">Edit</a>
                                                     <a href="">View</a>
                                                 </div> 
                                         </td>  

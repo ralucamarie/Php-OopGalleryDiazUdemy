@@ -1,3 +1,4 @@
+/* user image on the users list page: */
 
 /* ****Edit thhumb image for photos**** */
 .admin-photo-thumbnail{
@@ -5,6 +6,10 @@
   border-radius:5px;
 }
 
+.user_image{
+  width:62px;
+  height:62px;
+}
 
 .photo-info-box {
 
