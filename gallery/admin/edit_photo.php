@@ -139,7 +139,7 @@ $photo->save();
                                    <span class="glyphicon glyphicon-calendar"></span> Uploaded on: April 22, 2030 @ 5:26
                                   </p>
                                   <p class="text ">
-                                    Photo Id: <span class="data photo_id_box">34</span>
+                                    Photo Id: <span class="data id_box">34</span>
                                   </p>
                                   <p class="text">
                                     Filename: <span class="data">image.jpg</span>

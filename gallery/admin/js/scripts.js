@@ -6,7 +6,7 @@ var user_id;
 var image_src;
 var image_href_splitted;
 var image_name;
-var photo_id;
+var id;
 
 
 
@@ -27,12 +27,12 @@ image_href_splitted = image_src.split("/");
 image_name = image_href_splitted[image_href_splitted.length -1];
 
 
-photo_id = $(this).attr("data");
+id = $(this).attr("data");
 
 
 	$.ajax({
 url: "includes/ajax_code.php",
-data:{photo_id:photo_id},
+data:{id:id},
 type: "POST",
 success:function(data) {
 	if(!data.error) {

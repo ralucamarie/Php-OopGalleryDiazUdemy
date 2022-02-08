@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `comments` (
   `id` int(11) NOT NULL,
-  `photo_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `author` varchar(255) NOT NULL,
   `body` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -144,7 +144,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `u
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `photo_id` (`photo_id`);
+  ADD KEY `id` (`id`);
 
 --
 -- Indexes for table `photos`
