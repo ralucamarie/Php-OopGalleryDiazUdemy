@@ -9,12 +9,16 @@ if(isset($_POST['submit'])){
     $photo = new Photo();
     $photo ->title = $_POST["title"];
     $photo->set_file($_FILES['file_upload']);
+    var_dump($photo->errors);
     
     //check if photo was saved
     if($photo->save()){
         $message = "Photo uploaded Successfully";
     }else{
-        $message = join("<br>", $photo->errors);
+        if (is_array($photo->errors)){
+            $message = implode('<br>', $photo->errors);
+        } else $message=$photo->errors;
+       
     }
 
 
