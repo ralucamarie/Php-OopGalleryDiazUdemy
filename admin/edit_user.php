@@ -1,7 +1,6 @@
 
-<?php 
-include("includes/header.php"); ?>
-
+<?php include("includes/header.php"); ?>
+<?php require_once("includes/photo_modal.php"); ?>
 <?php if (!$session->is_signed_in()){ redirect("login.php");}?>
 
 <?php
@@ -20,11 +19,18 @@ if (empty($_GET['id'])){
       
       if(empty($_FILES['user_image'])){
         $user->save();
+        redirect("users.php");
+        $session->message("The user has been updated");
+
       }else {
         $user->set_file($_FILES['user_image']);
         $user->save_user_and_image();
         $user->save();
-        redirect("edit_user.php?id={$user->id}");
+        $session->message("The user has been updated");
+        // redirect("edit_user.php?id={$user->id}");
+        redirect("users.php");
+
+      
       }              
     }
       
@@ -37,8 +43,9 @@ if (isset($_POST['delete'])){
     
 }
 
-
 ?>
+
+
 
 
 
@@ -72,8 +79,8 @@ if (isset($_POST['delete'])){
                             Edit user
                             <small>Subheading</small>
                         </h1>
-                        <div class="col-md-6">
-                            <img class="img-responsive" src="<?php echo $user->image_path_and_placeholder(); ?>" alt="">
+                        <div class="col-md-6 user-image-box">
+                            <a href="#" data-toggle="modal" data-target="#photo-library"><img class="img-responsive" src="<?php echo $user->image_path_and_placeholder(); ?>" alt=""></a>
                         </div>
                     
                     
@@ -103,7 +110,7 @@ if (isset($_POST['delete'])){
                               <input id="" type="submit"  name="update" class="btn btn-primary pull-right" value = "Update">  
                             </div>
                             <div class="form-group">                          
-                              <input id="" type="submit"  name="delete" class="btn btn-danger pull-left" href="delete_user.php?id=<?php echo $user->id ?>" value = "Delete">  
+                              <a id="user-id" type="submit"  name="delete" class="btn btn-danger pull-left" href="delete_user.php?id=<?php echo $user->id ?>">Delete</a>
                             </div>
                         
                         

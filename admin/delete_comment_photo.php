@@ -12,12 +12,10 @@ $comment = Comment::find_by_id($_GET['id']);
 if($comment) {
     
         $comment->delete();
-        $session ->message("The comment with id: {$comment->id} has been deleted.");
-
-        redirect("comments.php");
+        redirect("delete_comment_photo.php?id={$comment->photo_id}");
 
 }else {
-    redirect('comments.php');
+    redirect("delete_comment_photo.php?id={$comment->photo_id}");
 }
 
 

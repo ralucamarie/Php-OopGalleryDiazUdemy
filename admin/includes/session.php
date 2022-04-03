@@ -3,34 +3,42 @@
 class Session{
     private $signed_in = false;
     public $user_id;
+    public $count;
+    public $message;
 
 
     function __construct() {
         session_start();
         $this -> check_the_login();
+        $this->visitor_count();
         $this->check_message();
 
     }
 
 public function message($msg=""){
-    if (!empty($msg)){
-        $_SESSION['message']="$msg";
+    if(!empty($msg)){
+        $_SESSION['message'] = $msg;
     }else {
         return $this->message;
     }
 }
 
-private function check_message(){
-    if (isset ($_SESSION['message'])){
-        $this->message = $_SESSION['message'];
+public function check_message(){
+    if (isset($_SESSION['message'])){
+        $this->message=$_SESSION['message'];
         unset($_SESSION['message']);
     }else {
         $this->message="";
     }
 }
 
-
-
+public function visitor_count(){
+    if(isset($_SESSION['count'])){
+        return $this ->count = $_SESSION['count']++;
+    }else {
+        return $this ->ccount = $_SESSION['count']=1;
+    }
+}
 
     public function is_signed_in(){
         return $this->signed_in;
@@ -64,6 +72,7 @@ private function check_message(){
 }
 
 $session = new Session();
+$message=$session->message();
 
 
 

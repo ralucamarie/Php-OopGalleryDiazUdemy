@@ -31,10 +31,12 @@ $comments= Comment::find_all();
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            comments
-                            <small>Subheading</small>
+                            Comments
+                            <small></small>
                         </h1>
-
+                        <p class="bg-success">
+                            <?php echo $session->message;  ?>
+                        </p>
                         <!-- <a href="add_comment.php" class="btn btn-primary">Add comment</a> -->
 
 

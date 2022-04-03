@@ -32,8 +32,12 @@ $photos= Photo::find_all();
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Photos
-                            <small>Subheading</small>
+                            <small></small>
                         </h1>
+
+                        <p class="bg-success">
+                            <?php echo $session->message;  ?>
+                        </p>
                         
                         <div class="col-md-12">
                             <table class="table table-hover">
@@ -54,7 +58,7 @@ $photos= Photo::find_all();
                                     <tr>
                                         <td><img class="admin-photo-thumbnail" src=<?php echo $photo->picture_path() ?> alt="">
                                     <div class="actions_link">
-                                        <a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
+                                        <a class="delete_link" href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a>
                                         <a href="edit_photo.php?id=<?php echo $photo->id; ?>">Edit</a>
                                         <a href="../photo.php?id=<?php echo $photo->id ?>">View</a>
                                     </div>   
